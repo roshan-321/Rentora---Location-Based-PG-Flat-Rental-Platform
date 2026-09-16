@@ -26,6 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ij5u6rb@@c6n9w6ry$xl-w&-e4&2*70(%xs8m24m@_k4x5d)^c'
 
+# API prefix
+API_PREFIX = "api"
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -42,8 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt',
     'accounts',
     'properties',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -83,7 +88,7 @@ AUTH_USER_MODEL = 'accounts.User'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("DB_NAME","mydb"),
+        "NAME": os.getenv("DB_NAME","rentora_db"),
         "USER": os.getenv("DB_USER","postgres"),
         "PASSWORD": os.getenv("DB_PASSWORD","postgres"),
         "HOST": os.getenv("DB_HOST","localhost"),
@@ -91,6 +96,19 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
+}
+
+# settings.py
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
