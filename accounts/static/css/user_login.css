@@ -2,9 +2,8 @@
    NAVBAR
 ========================= */
 
-.navbar {
-    background-color: #fff;
-    border-bottom: 1px solid #e9ecef;
+#nav{
+   display: none;
 }
 
 .brand {

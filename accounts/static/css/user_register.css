@@ -2,10 +2,10 @@
    NAVBAR
 ========================= */
 
-.navbar {
-    background-color: #fff;
-    border-bottom: 1px solid #e9ecef;
+#nav {  
+    display: none;
 }
+
 
 .brand {
     font-size: 1.6rem;
@@ -89,3 +89,4 @@ body {
         margin: 0 10px;
     }
 }
+

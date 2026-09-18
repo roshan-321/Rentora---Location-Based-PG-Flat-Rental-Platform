@@ -7,3 +7,8 @@ class UserRegisterRenderView(TemplateView):
 
 class UserLoginRenderView(TemplateView):
     template_name = 'user_login.html'
+
+
+
+class UserListView(TemplateView):
+    template_name = 'user_list.html'

@@ -9,18 +9,11 @@ from .serializers import UserSerializer
 # Create your views here.
 
 class UserAPI(APIView):
-    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         users = User.objects.all()
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data)
-
-    def get(self, request, id):
-        users = User.objects.get(id=id)
-        serializer = UserSerializer(users)
-        return Response(serializer.data)
-    
 
 
     def patch(self, request, id):
@@ -56,3 +49,9 @@ class UserRegisterApi(APIView):
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
+
+    # def get(self, request, id):
+    #        users = User.objects.get(id=id)
+    #        serializer = UserSerializer(users)
+    #        return Response(serializer.data)  add as single user view api
+       

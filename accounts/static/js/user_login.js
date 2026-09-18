@@ -8,6 +8,17 @@ function userLoginFormSubmit(event) {
     const email = document.getElementById("email");
     const password = document.getElementById("password");
 
+
+    if (email.value.trim() === "") {
+        showtoastMessage("Email is required");
+        return;
+    }
+
+    if (password.value.trim() === "") {
+        showtoastMessage("password is required");
+        return;
+    }
+
     const payload = {
         "email": email.value,
         "password": password.value,
@@ -24,6 +35,11 @@ function userLoginFormSubmit(event) {
     .then(data => {
 
         console.log("data :", data);
+
+        if (!data.access) {
+        showtoastMessage("please login with correct credentials");
+        return;
+        }
 
         localStorage.setItem("access", data.access);
 
@@ -53,8 +69,13 @@ function userLoginFormSubmit(event) {
 
         if (userdata.role === "tenant") {
 
+            showtoastMessage("Login successful!");
+
             console.log("Redirecting to home...");
-            window.location.href = "http://127.0.0.1:8000";
+
+            setTimeout(() => {
+            // window.location.href = "/";
+            }, 2000);
 
         } else {
 
