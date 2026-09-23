@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Add Property | Rentora
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/add_property.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-7">
+
+            <div class="card shadow-sm property-form-card">
+
+                <div class="card-body p-4">
+
+                    <h2 class="text-center mb-2">
+                        Add Property
+                    </h2>
+
+                    <p class="text-center text-muted mb-4">
+                        Add your property details
+                    </p>
+
+
+                    <form id="propertyForm">
+
+
+                        <!-- Property Name -->
+
+                        <div class="mb-3">
+
+                            <label for="name" class="form-label">
+                                Property Name
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="name"
+                                name="name"
+                                placeholder="Enter property name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Property Type -->
+
+                        <div class="mb-3">
+
+                            <label for="property_type" class="form-label">
+                                Property Type
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="property_type"
+                                name="property_type"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Property Type
+                                </option>
+
+                                <option value="pg">
+                                    PG
+                                </option>
+
+                                <option value="flat">
+                                    Flat
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Description -->
+
+                        <div class="mb-3">
+
+                            <label for="description" class="form-label">
+                                Description
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="description"
+                                name="description"
+                                rows="4"
+                                placeholder="Enter property description"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- Rent -->
+
+                        <div class="mb-3">
+
+                            <label for="rent" class="form-label">
+                                Monthly Rent
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="rent"
+                                name="rent"
+                                placeholder="Enter monthly rent"
+                                min="0"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Features -->
+
+                        <div class="mb-3">
+
+                            <label for="features" class="form-label">
+                                Features
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="features"
+                                name="features"
+                                rows="3"
+                                placeholder="Example: WiFi, Parking, Food, Security"
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- Address -->
+
+                        <div class="mb-4">
+
+                            <label for="address" class="form-label">
+                                Address
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="address"
+                                name="address"
+                                placeholder="Enter property address"
+                            >
+
+                        </div>
+
+
+                        <!-- Submit -->
+
+                        <div class="d-grid">
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                            >
+                                Add Property
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script src="{% static 'js/add_property.js' %}"></script>
+
+{% endblock %}

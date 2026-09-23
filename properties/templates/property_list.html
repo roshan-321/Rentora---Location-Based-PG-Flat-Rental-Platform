@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Properties | Rentora
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/property_list.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2 class="mb-1">Properties</h2>
+
+            <p class="text-muted mb-0">
+                Find your perfect place to stay
+            </p>
+        </div>
+
+        <a href="/properties/add" class="btn btn-primary">
+            + Add Property
+        </a>
+
+    </div>
+
+
+    <!-- Properties will be loaded here -->
+
+    <div id="propertyList" class="row g-4">
+
+    </div>
+
+
+    <!-- No property message -->
+
+    <div id="noPropertyMessage" class="text-center py-5 d-none">
+
+        <h5>No properties available</h5>
+
+        <p class="text-muted">
+            Add a property to start listing your rental.
+        </p>
+
+        <a href="/properties/add" class="btn btn-primary">
+            + Add Property
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+
+<script src="{% static 'js/property_list.js' %}"></script>
+
+{% endblock %}

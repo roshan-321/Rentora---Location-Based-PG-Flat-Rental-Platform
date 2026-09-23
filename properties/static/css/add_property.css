@@ -1,0 +1,32 @@
+.property-form-card {
+    border: none;
+    border-radius: 18px;
+}
+
+.property-form-card h2 {
+    font-weight: 700;
+    color: #212529;
+}
+
+.property-form-card .form-control,
+.property-form-card .form-select {
+    min-height: 48px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.property-form-card textarea.form-control {
+    min-height: auto;
+}
+
+.property-form-card .form-control:focus,
+.property-form-card .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.property-form-card .btn-primary {
+    min-height: 48px;
+    border-radius: 10px;
+    font-weight: 600;
+}

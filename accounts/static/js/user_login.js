@@ -66,21 +66,15 @@ function userLoginFormSubmit(event) {
     .then(userdata => {
 
         console.log("userdata :", userdata);
+ 
+        showtoastMessage("Login successful!");
 
-        if (userdata.role === "tenant") {
+        console.log("Redirecting to home...");
 
-            showtoastMessage("Login successful!");
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 2000);
 
-            console.log("Redirecting to home...");
-
-            setTimeout(() => {
-            // window.location.href = "/";
-            }, 2000);
-
-        } else {
-
-            console.log("Role is:", userdata.role);
-        }
 
     })
     .catch(error => {
