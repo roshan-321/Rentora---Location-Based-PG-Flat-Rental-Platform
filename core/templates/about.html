@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+About Rentora
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="about-page">
+
+    <section class="about-hero">
+
+        <div class="container">
+
+            <div class="about-hero-content">
+
+                <h1>
+                    About <span>Rentora</span>
+                </h1>
+
+                <p>
+                    A simple and convenient platform for finding
+                    and managing PGs and rental properties.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="about-section">
+
+        <div class="container">
+
+            <div class="about-card">
+
+                <h2>What is Rentora?</h2>
+
+                <p>
+                    Rentora is a location-based PG and flat rental
+                    platform designed to make the property rental
+                    process easier for tenants and property owners.
+                </p>
+
+                <p>
+                    Tenants can browse available properties, view
+                    property details and find suitable rental options.
+                    Property owners can add and manage their properties
+                    through the platform.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4 mt-2">
+
+                <div class="col-md-6">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            🔍
+                        </div>
+
+                        <h3>Find Properties</h3>
+
+                        <p>
+                            Browse available PGs and flats and view
+                            important information such as rent,
+                            property type, features and address.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            🏠
+                        </div>
+
+                        <h3>List Your Property</h3>
+
+                        <p>
+                            Property owners can add their rental
+                            properties and provide complete details
+                            for potential tenants.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            ✏️
+                        </div>
+
+                        <h3>Manage Properties</h3>
+
+                        <p>
+                            Owners can update or delete their own
+                            property listings while maintaining
+                            control over their property information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            🔐
+                        </div>
+
+                        <h3>Secure Access</h3>
+
+                        <p>
+                            Rentora uses authentication and
+                            role-based access to provide appropriate
+                            features to tenants and property owners.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-card role-section">
+
+                <h2>For Tenants</h2>
+
+                <p>
+                    Tenants can explore available rental properties,
+                    view complete property information and find a
+                    suitable place according to their requirements.
+                </p>
+
+                <h2>For Property Owners</h2>
+
+                <p>
+                    Property owners can create property listings,
+                    update their property information and delete
+                    their own listings when required.
+                </p>
+
+            </div>
+
+
+            <div class="about-card mission-card">
+
+                <h2>Our Goal</h2>
+
+                <p>
+                    The goal of Rentora is to provide a straightforward
+                    platform that connects people looking for rental
+                    properties with property owners and makes property
+                    discovery and management easier.
+                </p>
+
+            </div>
+
+
+            <div class="text-center back-section">
+
+                <a href="/" class="btn btn-primary">
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

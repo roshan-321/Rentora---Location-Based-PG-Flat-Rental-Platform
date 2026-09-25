@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block title %}
-Add Property | Rentora
+Edit Property | Rentora
 {% endblock %}
 
 {% block extra_css %}
 
-<link rel="stylesheet" href="{% static 'css/add_property.css' %}">
+<link rel="stylesheet" href="{% static 'css/property_edit.css' %}">
 
 {% endblock %}
 
@@ -25,18 +25,16 @@ Add Property | Rentora
                 <div class="card-body p-4">
 
                     <h2 class="text-center mb-2">
-                        Add Property
+                        Edit Property
                     </h2>
 
                     <p class="text-center text-muted mb-4">
-                        Add your property details
+                        Update your property details
                     </p>
 
 
-                    <form id="propertyForm">
+                    <form id="editPropertyForm">
 
-
-                        <!-- Property Name -->
 
                         <div class="mb-3">
 
@@ -44,13 +42,16 @@ Add Property | Rentora
                                 Property Name
                             </label>
 
-                            <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Enter property name">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="name"
+                                name="name"
+                                placeholder="Enter property name"
+                            >
 
                         </div>
 
-
-                        <!-- Property Type -->
 
                         <div class="mb-3">
 
@@ -58,7 +59,11 @@ Add Property | Rentora
                                 Property Type
                             </label>
 
-                            <select class="form-select" id="property_type" name="property_type">
+                            <select
+                                class="form-select"
+                                id="property_type"
+                                name="property_type"
+                            >
 
                                 <option value="">
                                     Select Property Type
@@ -77,21 +82,22 @@ Add Property | Rentora
                         </div>
 
 
-                        <!-- Description -->
-
                         <div class="mb-3">
 
                             <label for="description" class="form-label">
                                 Description
                             </label>
 
-                            <textarea class="form-control" id="description" name="description" rows="4"
-                                placeholder="Enter property description"></textarea>
+                            <textarea
+                                class="form-control"
+                                id="description"
+                                name="description"
+                                rows="4"
+                                placeholder="Enter property description"
+                            ></textarea>
 
                         </div>
 
-
-                        <!-- Rent -->
 
                         <div class="mb-3">
 
@@ -99,13 +105,17 @@ Add Property | Rentora
                                 Monthly Rent
                             </label>
 
-                            <input type="number" class="form-control" id="rent" name="rent"
-                                placeholder="Enter monthly rent" min="0">
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="rent"
+                                name="rent"
+                                placeholder="Enter monthly rent"
+                                min="0"
+                            >
 
                         </div>
 
-
-                        <!-- Features -->
 
                         <div class="mb-3">
 
@@ -113,13 +123,16 @@ Add Property | Rentora
                                 Features
                             </label>
 
-                            <textarea class="form-control" id="features" name="features" rows="3"
-                                placeholder="Example: WiFi, Parking, Food, Security"></textarea>
+                            <textarea
+                                class="form-control"
+                                id="features"
+                                name="features"
+                                rows="3"
+                                placeholder="Example: WiFi, Parking, Food, Security"
+                            ></textarea>
 
                         </div>
 
-
-                        <!-- Address -->
 
                         <div class="mb-4">
 
@@ -127,22 +140,31 @@ Add Property | Rentora
                                 Address
                             </label>
 
-                            <input type="text" class="form-control" id="address" name="address"
-                                placeholder="Enter property address">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="address"
+                                name="address"
+                                placeholder="Enter property address"
+                            >
 
                         </div>
 
 
-                        <!-- Submit -->
                         <div class="d-flex gap-3">
 
-
-                            <a href="/properties/list" class="btn btn-secondary w-50">
+                            <a
+                                href="/properties/list"
+                                class="btn btn-secondary w-50"
+                            >
                                 Back
                             </a>
 
-                            <button type="submit" class="btn btn-primary w-50">
-                                Add Property
+                            <button
+                                type="submit"
+                                class="btn btn-primary w-50"
+                            >
+                                Update Property
                             </button>
 
                         </div>
@@ -162,8 +184,9 @@ Add Property | Rentora
 
 {% endblock %}
 
+
 {% block script %}
 
-<script src="{% static 'js/add_property.js' %}"></script>
+<script src="{% static 'js/property_edit.js' %}"></script>
 
 {% endblock %}

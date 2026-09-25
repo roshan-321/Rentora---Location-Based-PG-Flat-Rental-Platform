@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Profile | Rentora
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/user_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="profile-card">
+
+        <div class="profile-header">
+
+            <div class="profile-avatar">
+                <span id="profileInitial">U</span>
+            </div>
+
+            <div>
+                <h2 id="profileName">User Name</h2>
+                <span class="role-badge" id="profileRole">User</span>
+            </div>
+
+        </div>
+
+
+        <div class="profile-body">
+
+            <div class="section-heading">
+                <h4>Personal Information</h4>
+                <p>View your account details</p>
+            </div>
+
+
+            <div class="profile-grid">
+
+                <div class="profile-field">
+                    <label>First Name</label>
+                    <div class="profile-value" id="firstName">
+                        -
+                    </div>
+                </div>
+
+
+                <div class="profile-field">
+                    <label>Last Name</label>
+                    <div class="profile-value" id="lastName">
+                        -
+                    </div>
+                </div>
+
+
+                <div class="profile-field">
+                    <label>Email Address</label>
+                    <div class="profile-value" id="email">
+                        -
+                    </div>
+                </div>
+
+
+                <div class="profile-field">
+                    <label>Phone Number</label>
+                    <div class="profile-value" id="phoneNumber">
+                        -
+                    </div>
+                </div>
+
+
+                <div class="profile-field">
+                    <label>Username</label>
+                    <div class="profile-value" id="username">
+                        -
+                    </div>
+                </div>
+
+
+                <div class="profile-field">
+                    <label>Account Type</label>
+                    <div class="profile-value" id="role">
+                        -
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="profile-actions">
+
+                <a href="/" class="btn btn-secondary">
+                    Back to Home
+                </a>
+
+                <a id="edit-profile-link" href="/accounts/user/profile/edit" class="btn btn-primary">
+                    Edit Profile
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/user_profile.js' %}"></script>
+{% endblock %}

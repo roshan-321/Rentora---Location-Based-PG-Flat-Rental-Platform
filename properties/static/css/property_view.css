@@ -1,0 +1,106 @@
+
+.property-view-card {
+    border: none;
+    border-radius: 18px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.property-badge {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 20px;
+    background: #f1f3f5;
+    color: #495057;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.property-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.property-details {
+    margin-top: 30px;
+    border-top: 1px solid #e9ecef;
+}
+
+.detail-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 18px 5px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.detail-label {
+    min-width: 150px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.detail-value {
+    flex: 1;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 500;
+    color: #212529;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.detail-value.highlight {
+    font-weight: 700;
+}
+
+.detail-value.rent {
+    font-size: 22px;
+    font-weight: 700;
+    color: #198754;
+}
+
+.detail-value.rent small {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.property-actions {
+    margin-top: 30px;
+}
+
+.property-actions .btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+@media (max-width: 576px) {
+
+    .property-title {
+        font-size: 24px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .detail-label {
+        min-width: auto;
+    }
+
+    .detail-value {
+        text-align: left;
+    }
+
+    .property-actions .btn {
+        width: 100%;
+    }
+}

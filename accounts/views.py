@@ -8,3 +8,8 @@ class UserRegisterRenderView(TemplateView):
 class UserLoginRenderView(TemplateView):
     template_name = 'user_login.html'
 
+class UserProfileRenderView(TemplateView):
+    template_name = 'user_profile.html'
+
+class EditProfileRenderView(TemplateView):
+    template_name = "edit_profile.html"

@@ -1,0 +1,28 @@
+.property-form-card {
+    border: none;
+    border-radius: 12px;
+}
+
+.property-form-card h2 {
+    font-weight: 600;
+}
+
+.property-form-card .form-label {
+    font-weight: 500;
+}
+
+.property-form-card .form-control,
+.property-form-card .form-select {
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.property-form-card .form-control:focus,
+.property-form-card .form-select:focus {
+    box-shadow: none;
+}
+
+.property-form-card .btn {
+    padding: 10px;
+    border-radius: 8px;
+}

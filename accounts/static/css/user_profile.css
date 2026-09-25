@@ -1,0 +1,152 @@
+.profile-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 35px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #0d6efd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-avatar span {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.profile-header h2 {
+    margin: 0 0 8px;
+    color: #212529;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #e7f1ff;
+    color: #0d6efd;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.profile-body {
+    padding: 35px;
+}
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-heading h4 {
+    margin: 0;
+    color: #212529;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.section-heading p {
+    margin: 5px 0 0;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.profile-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #495057;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.profile-value {
+    min-height: 45px;
+    padding: 11px 14px;
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    color: #212529;
+    font-size: 15px;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #e9ecef;
+}
+
+.profile-actions .btn {
+    min-width: 130px;
+    border-radius: 7px;
+    padding: 9px 18px;
+    font-weight: 500;
+}
+
+@media (max-width: 767px) {
+
+    .profile-header {
+        padding: 25px;
+    }
+
+    .profile-body {
+        padding: 25px;
+    }
+
+    .profile-avatar {
+        width: 65px;
+        height: 65px;
+    }
+
+    .profile-avatar span {
+        font-size: 24px;
+    }
+
+    .profile-header h2 {
+        font-size: 21px;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .profile-actions .btn {
+        width: 100%;
+    }
+}

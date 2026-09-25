@@ -1,20 +1,59 @@
-
-
 .property-card {
     border: none;
-    border-radius: 16px;
-    transition: 0.3s ease;
+    border-radius: 12px;
+    transition: 0.2s ease;
 }
 
 .property-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-3px);
 }
 
-.property-card .card-title {
+.property-card .card-body {
+    padding: 20px;
+}
+
+.property-card h5 {
     font-weight: 600;
+    margin-bottom: 10px;
 }
 
-.property-card .badge {
-    font-size: 12px;
+.property-type {
+    display: inline-block;
+    background-color: #f1f3f5;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.property-description {
+    color: #6c757d;
+    min-height: 48px;
+}
+
+.property-rent {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.property-features {
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.property-address {
+    color: #6c757d;
+    font-size: 14px;
+    min-height: 40px;
+}
+
+.property-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 8px;
+}
+
+.property-actions .btn {
+    border-radius: 7px;
 }

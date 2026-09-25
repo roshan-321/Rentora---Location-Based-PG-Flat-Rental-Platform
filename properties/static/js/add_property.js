@@ -24,6 +24,39 @@ propertyForm.addEventListener("submit", function(event) {
         featureObject[feature] = true;
     });
 
+    
+    if (name.value.trim() === "") {
+        showtoastMessage("property name is required");
+        return;
+    }
+
+    if (propertyType.value.trim() === "") {
+        showtoastMessage("property type is required");
+        return;
+    }
+
+    if (description.value.trim() === "") {
+        showtoastMessage("description is required");
+        return;
+    }
+
+    if (features.value.trim() === "") {
+        showtoastMessage("please add some features");
+        return;
+    }
+
+    
+    if (rent.value.trim() === "") {
+        showtoastMessage("rent is required");
+        return;
+    }
+
+    if (address.value.trim() === "") {
+        showtoastMessage("address is required");
+        return;
+    }
+
+
 
     const payload = {
         "name": name.value,
@@ -67,3 +100,16 @@ propertyForm.addEventListener("submit", function(event) {
     });
 
 });
+
+function validatePermissions() {
+    if (userData.role == "tenant" && isProtectedRoute) {
+        showtoastMessage("You don't have permission to access this page!");
+
+        setTimeout(() => {
+            localStorage.removeItem("access");
+            window.location.href = "/accounts/user/signin";
+        }, 2000);
+
+        return;
+    }
+}

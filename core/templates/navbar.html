@@ -1,14 +1,15 @@
-<style>
-    #logout-item{
-        display: none;
-    }
-</style>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+
+
 <nav id="nav" class="navbar navbar-expand-lg">
 
     <div class="container">
 
 
-        <a class="navbar-brand brand" href="#">
+        <a class="navbar-brand brand" href="/">
             Rent<span>ora</span>
         </a>
 
@@ -28,16 +29,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="#">
-                        Home
-                    </a>
-
-                </li>
-
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="properties/list">
+                    <a class="nav-link" href="/properties/list">
                         Properties
                     </a>
 
@@ -46,8 +38,16 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/about">
                         About
+                    </a>
+
+                </li>
+                
+                <li class="nav-item" id="profile-item">
+
+                    <a class="nav-link" id="profile-link" href="/accounts/user/profile/">
+                        Profile
                     </a>
 
                 </li>

@@ -59,11 +59,13 @@ class UserRegisterApi(APIView):
             status=status.HTTP_400_BAD_REQUEST
         )
 
-
+#  AuthAPI
 class AuthAPI(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return Response({
-            "message": "Authenticated"
+            "message": "Authenticated",
+            "role": request.user.role,
+            "id":request.user.id
         })

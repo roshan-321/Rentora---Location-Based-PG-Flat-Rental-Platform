@@ -1,3 +1,7 @@
+#nav{
+   display: none;
+}
+
 .property-form-card {
     border: none;
     border-radius: 18px;
