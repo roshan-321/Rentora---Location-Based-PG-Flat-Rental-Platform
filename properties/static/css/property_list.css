@@ -57,3 +57,8 @@
 .property-actions .btn {
     border-radius: 7px;
 }
+
+.filter-card {
+    position: sticky;
+    top: 90px;
+}

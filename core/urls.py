@@ -1,5 +1,5 @@
 from django.urls import path
-from accounts.views import UserRegisterRenderView, UserLoginRenderView, UserProfileRenderView, EditProfileRenderView
+from accounts.views import UserRegisterRenderView, UserLoginRenderView, UserProfileRenderView, EditProfileRenderView, UserListRenderView,UserViewRenderView, UserEditRenderView
 from properties.views import PropertyListRenderView, AddPropertyRenderView, PropertyEditRenderView, PropertyViewRenderView
 from .views import HomeRenderView, AboutRenderView
 
@@ -17,6 +17,11 @@ urlpatterns = [
     path(f"{ACCOUNTS_PREFIX}/user/signin", UserLoginRenderView.as_view(), name="user_login"),
     path(f"{ACCOUNTS_PREFIX}/user/profile/<int:id>", UserProfileRenderView.as_view(), name="user_profile"),
     path(f"{ACCOUNTS_PREFIX}/user/profile/edit/<int:id>", EditProfileRenderView.as_view(), name="user_profile"),
+    path(f"{ACCOUNTS_PREFIX}/user/list", UserListRenderView.as_view(), name="user_list"),
+    path(f"{ACCOUNTS_PREFIX}/user/view/<int:id>", UserViewRenderView.as_view(), name="user_view"),
+    path(f"{ACCOUNTS_PREFIX}/user/edit/<int:id>", UserEditRenderView.as_view(), name="user_view"),
+    
+
 
     # Properties
     path(f"{PROPERTY_PREFIX}/list", PropertyListRenderView.as_view(), name="property_list"),

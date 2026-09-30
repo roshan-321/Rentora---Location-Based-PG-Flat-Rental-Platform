@@ -13,7 +13,14 @@ fetch(`/api/properties/list/${propertyId}`, {
 })
 .then(property => {
 
+    if (!validatePermissions(property)){
+        return;
+    }
+
+
     document.getElementById("name").value = property.name;
+
+    document.getElementById("suitable_for").value = property.suitable_for
 
     document.getElementById("property_type").value = property.property_type;
 
@@ -22,6 +29,10 @@ fetch(`/api/properties/list/${propertyId}`, {
     document.getElementById("rent").value = property.rent;
 
     document.getElementById("address").value = property.address;
+
+    document.getElementById("contact_no").value = property.contact_no;
+
+    document.getElementById("alternate_contact_no").value = property.alternate_contact_no;
 
 
     const features = Object.keys(property.features);
@@ -36,20 +47,17 @@ document.getElementById("editPropertyForm").addEventListener("submit", function(
     event.preventDefault();
 
 
-    const name = document.getElementById("name").value;
+    const name = document.getElementById("name");
+    const propertyType = document.getElementById("property_type");
+    const suitableFor = document.getElementById("suitable_for")
+    const description = document.getElementById("description");
+    const rent = document.getElementById("rent");
+    const features = document.getElementById("features");
+    const address = document.getElementById("address");
+    const contactNo = document.getElementById("contact_no");
+    const alternateContactNo = document.getElementById("alternate_contact_no");
 
-    const propertyType = document.getElementById("property_type").value;
-
-    const description = document.getElementById("description").value;
-
-    const rent = document.getElementById("rent").value;
-
-    const address = document.getElementById("address").value;
-
-    const featuresInput = document.getElementById("features").value;
-
-
-    const featureList = featuresInput
+    const featureList = features.value
         .split(",")
         .map(feature => feature.trim())
         .filter(feature => feature !== "");
@@ -73,6 +81,12 @@ document.getElementById("editPropertyForm").addEventListener("submit", function(
         return;
     }
 
+    if (suitableFor.value.trim() === "") {
+        showtoastMessage("Suitable For is required");
+        return;
+    }
+
+
     if (description.value.trim() === "") {
         showtoastMessage("description is required");
         return;
@@ -94,14 +108,24 @@ document.getElementById("editPropertyForm").addEventListener("submit", function(
         return;
     }
 
+    if (contactNo.value.trim() === "") {
+        showtoastMessage("Contact No. is required");
+        return;
+    }
+
+
 
     const payload = {
-        name: name,
-        property_type: propertyType,
-        description: description,
-        rent: rent,
-        features: featureObject,
-        address: address
+        "name": name.value,
+        "property_type": propertyType.value,
+        "suitable_for":suitableFor.value,
+        "description": description.value,
+        "rent": rent.value,
+        "features": featureObject,
+        "address": address.value,
+        "contact_no":contactNo.value,
+        "alternate_contact_no" : alternateContactNo.value
+
     };
 
 
@@ -111,7 +135,7 @@ document.getElementById("editPropertyForm").addEventListener("submit", function(
 
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + accessToken
+            "Authorization": "Bearer " + localStorage.getItem("access")
         },
 
         body: JSON.stringify(payload)
@@ -137,8 +161,14 @@ document.getElementById("editPropertyForm").addEventListener("submit", function(
 
 });
 
-function validatePermissions() {
-    if (userData.role == "tenant" && isProtectedRoute) {
+
+
+function validatePermissions(property) {
+    if (
+        userData.id != property.owner &&
+        !userData.is_superuser &&
+        isProtectedRoute
+    ) {
         showtoastMessage("You don't have permission to access this page!");
 
         setTimeout(() => {
@@ -146,6 +176,8 @@ function validatePermissions() {
             window.location.href = "/accounts/user/signin";
         }, 2000);
 
-        return;
+        return false;
     }
+
+    return true;
 }

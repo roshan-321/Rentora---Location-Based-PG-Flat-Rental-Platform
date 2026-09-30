@@ -15,11 +15,16 @@ fetch(`/api/properties/list/${propertyId}`, {
     return response.json();
 })
 .then(property => {
+    console.log(property);
 
     document.getElementById("name").textContent = property.name;
 
     document.getElementById("property_type").textContent =
         property.property_type;
+
+    document.getElementById("suitable_for").textContent =
+        property.suitable_for;
+
 
     document.getElementById("description").textContent =
         property.description;
@@ -36,6 +41,12 @@ fetch(`/api/properties/list/${propertyId}`, {
 
     document.getElementById("features").textContent =
         features.join(", ");
+
+    document.getElementById("contact_no").textContent =
+        property.contact_no;
+    
+    document.getElementById("alternate_contact_no").textContent =
+        property.alternate_contact_no || "-";
 
 })
 .catch(error => {

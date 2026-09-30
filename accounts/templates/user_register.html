@@ -9,10 +9,7 @@ Rentora Registration
 
 {% block extra_css %}
 
-<link
-    rel="stylesheet"
-    href="{% static 'css/user_register.css' %}"
->
+<link rel="stylesheet" href="{% static 'css/user_register.css' %}">
 
 {% endblock %}
 
@@ -41,138 +38,86 @@ Rentora Registration
 
                         <div class="mb-3">
 
-                            <label
-                                for="first_name"
-                                class="form-label"
-                            >
+                            <label for="first_name" class="form-label">
                                 First Name
                             </label>
 
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="first_name"
-                                name="first_name"
-                    
-                            >
+                            <input type="text" class="form-control" id="first_name" name="first_name">
 
                         </div>
 
 
                         <div class="mb-3">
 
-                            <label
-                                for="last_name"
-                                class="form-label"
-                            >
+                            <label for="last_name" class="form-label">
                                 Last Name
                             </label>
 
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="last_name"
-                                name="last_name"
-                                
-                            >
+                            <input type="text" class="form-control" id="last_name" name="last_name">
 
                         </div>
 
+                        <div class="mb-3">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select id="gender" name="gender" class="form-select" required>
+                                <option value="" selected disabled>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
 
                         <div class="mb-3">
 
-                            <label
-                                for="email"
-                                class="form-label"
-                            >
+                            <label for="email" class="form-label">
                                 Email
                             </label>
 
-                            <input
-                                type="email"
-                                class="form-control"
-                                id="email"
-                                name="email"
-                            
-                            >
+                            <input type="email" class="form-control" id="email" name="email">
 
                         </div>
 
 
                         <div class="mb-3">
 
-                            <label
-                                for="phone_number"
-                                class="form-label"
-                            >
+                            <label for="phone_number" class="form-label">
                                 Phone Number
                             </label>
 
-                            <input
-                                type="tel"
-                                class="form-control"
-                                id="phone_number"
-                                name="phone_number"
-                            >
+                            <input type="tel" class="form-control" id="phone_number" name="phone_number">
 
                         </div>
 
 
                         <div class="mb-3">
 
-                            <label
-                                for="password"
-                                class="form-label"
-                            >
+                            <label for="password" class="form-label">
                                 Password
                             </label>
 
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="password"
-                                name="password"
-                            
-                            >
+                            <input type="password" class="form-control" id="password" name="password">
 
                         </div>
 
 
                         <div class="mb-3">
 
-                            <label
-                                for="confirm_password"
-                                class="form-label"
-                            >
+                            <label for="confirm_password" class="form-label">
                                 Confirm Password
                             </label>
 
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="confirm_password"
-                                name="confirm_password"
-                                
-                            >
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password">
 
                         </div>
 
 
                         <div class="mb-4">
 
-                            <label
-                                for="role"
-                                class="form-label"
-                            >
+                            <label for="role" class="form-label">
                                 Register As
                             </label>
 
-                            <select
-                                id="role"
-                                name="role"
-                                class="form-select"
-                                
-                            >
+                            <select id="role" name="role" class="form-select">
 
                                 <option value="">
                                     Select Role
@@ -193,11 +138,8 @@ Rentora Registration
 
                         <div class="d-grid">
 
-                            <button
-                                type="submit"
-                                class="btn btn-primary"
-                            >
-                                Register
+                            <button type="submit" class="btn btn-primary">
+                                Create Account
                             </button>
 
                         </div>

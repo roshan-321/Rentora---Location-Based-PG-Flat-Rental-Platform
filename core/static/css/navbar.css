@@ -1,4 +1,6 @@
-
+#users-item{
+    display: none;
+}
 
 #logout-item{
         display: none;

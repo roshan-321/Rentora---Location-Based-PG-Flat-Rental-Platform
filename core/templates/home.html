@@ -1,29 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block title %}
 Rentora - Dashboard
 {% endblock %}
 
-
 {% block extra_css %}
 
-<link
-    rel="stylesheet"
-    href="{% static 'css/home.css' %}"
->
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 {% endblock %}
 
-
 {% block content %}
-
 
 <!-- ================= HERO ================= -->
 
 <section class="hero">
 
+    ```
     <div class="container">
 
         <div class="hero-content text-white">
@@ -58,11 +52,8 @@ Rentora - Dashboard
 
                     <div class="col-md-5">
 
-                        <input
-                            type="text"
-                            class="form-control form-control-lg"
-                            placeholder="Enter location"
-                        >
+                        <input type="text" class="form-control form-control-lg" id="location"
+                            placeholder="Enter location">
 
                     </div>
 
@@ -71,25 +62,20 @@ Rentora - Dashboard
 
                     <div class="col-md-4">
 
-                        <select
-                            class="form-select form-select-lg"
-                        >
+                        <select class="form-select form-select-lg" id="property_type">
 
                             <option selected>
                                 Property Type
                             </option>
 
-                            <option>
+                            <option value="pg">
                                 PG
                             </option>
 
-                            <option>
+                            <option value="flat">
                                 Flat
                             </option>
 
-                            <option>
-                                Room
-                            </option>
 
                         </select>
 
@@ -99,15 +85,10 @@ Rentora - Dashboard
                     <!-- Search Button -->
 
                     <div class="col-md-3">
-
-                        <button
-                            class="btn btn-dark btn-lg w-100"
-                        >
+                        <button type="button" id="searchProperties" class="btn btn-dark btn-lg w-100">
                             Search
                         </button>
-
                     </div>
-
 
                 </div>
 
@@ -117,15 +98,15 @@ Rentora - Dashboard
         </div>
 
     </div>
+    ```
 
 </section>
-
-
 
 <!-- ================= FEATURES ================= -->
 
 <section class="py-5">
 
+    ```
     <div class="container">
 
 
@@ -248,14 +229,13 @@ Rentora - Dashboard
         </div>
 
     </div>
-
+    
 </section>
-
-
 
 <!-- ================= CTA ================= -->
 
 <section class="py-5">
+
 
     <div class="container">
 
@@ -269,25 +249,31 @@ Rentora - Dashboard
 
 
             <p class="text-light mt-2">
-                Create your Rentora account and start exploring.
+                Sign in to your Rentora account or create a new account to start exploring.
             </p>
 
 
-            <a
-                href="/accounts/user/signup"
-                class="btn btn-primary px-4 mt-2"
-            >
-                Register Now
-            </a>
+            <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+
+                <a href="/accounts/user/signin" class="btn btn-outline-light px-4">
+                    Sign In
+                </a>
+
+                <a href="/accounts/user/signup" class="btn btn-primary px-4">
+                    Sign Up
+                </a>
+
+            </div>
 
 
         </div>
 
     </div>
+    
 
 </section>
-
-
+{% block script %}
+<script src="{% static 'js/home.js' %}"></script>
 {% endblock %}
 
-
+{% endblock %}

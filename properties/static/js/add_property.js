@@ -6,10 +6,13 @@ propertyForm.addEventListener("submit", function(event) {
 
     const name = document.getElementById("name");
     const propertyType = document.getElementById("property_type");
+    const suitableFor = document.getElementById("suitable_for")
     const description = document.getElementById("description");
     const rent = document.getElementById("rent");
     const features = document.getElementById("features");
     const address = document.getElementById("address");
+    const contactNo = document.getElementById("contact_no");
+    const alternateContactNo = document.getElementById("alternate_contact_no");
 
 
     const featureList = features.value
@@ -31,9 +34,14 @@ propertyForm.addEventListener("submit", function(event) {
     }
 
     if (propertyType.value.trim() === "") {
-        showtoastMessage("property type is required");
+        showtoastMessage("plese Select propety Type");
         return;
     }
+
+    if (suitableFor.value.trim() === "") {
+        showtoastMessage("plese Select Suitable For ");
+        return;
+    }    
 
     if (description.value.trim() === "") {
         showtoastMessage("description is required");
@@ -52,7 +60,12 @@ propertyForm.addEventListener("submit", function(event) {
     }
 
     if (address.value.trim() === "") {
-        showtoastMessage("address is required");
+        showtoastMessage("Address is required");
+        return;
+    }
+
+    if (contactNo.value.trim() === "") {
+        showtoastMessage("Contact No. is required");
         return;
     }
 
@@ -61,10 +74,14 @@ propertyForm.addEventListener("submit", function(event) {
     const payload = {
         "name": name.value,
         "property_type": propertyType.value,
+        "suitable_for":suitableFor.value,
         "description": description.value,
         "rent": rent.value,
         "features": featureObject,
-        "address": address.value
+        "address": address.value,
+        "contact_no":contactNo.value,
+        "alternate_contact_no" : alternateContactNo.value
+        
     };
 
 
@@ -87,7 +104,7 @@ propertyForm.addEventListener("submit", function(event) {
     .then(data => {
 
         console.log("data :", data);
-
+        showtoastMessage("property Added Successfully")
         setTimeout(() => {
             window.location.href = "/properties/list";
             }, 2000);
@@ -112,4 +129,19 @@ function validatePermissions() {
 
         return;
     }
+}
+
+
+function validatePermissions() {
+    if (userData.role == "tenant" && isProtectedRoute) {
+        showtoastMessage("You don't have permission to access this page!");
+
+        setTimeout(() => {
+            localStorage.removeItem("access");
+            window.location.href = "/accounts/user/signin";
+        }, 2000);
+
+        return false;
+    }
+    return true;
 }

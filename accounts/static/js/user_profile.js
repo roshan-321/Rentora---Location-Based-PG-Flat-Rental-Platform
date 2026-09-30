@@ -21,6 +21,10 @@ fetch(`/api/accounts/users/${userId}`, {
 })
 .then(user => {
 
+    if (!validatePermissions()) {
+        return;
+    }
+
     document.getElementById("firstName").textContent =
         user.first_name;
 
@@ -29,6 +33,9 @@ fetch(`/api/accounts/users/${userId}`, {
 
     document.getElementById("email").textContent =
         user.email;
+
+    document.getElementById("gender").textContent =
+        user.gender;
 
     document.getElementById("phoneNumber").textContent =
         user.phone_number || "-";
@@ -54,3 +61,17 @@ fetch(`/api/accounts/users/${userId}`, {
     console.log(error);
 
 });
+
+function validatePermissions() {
+    if (userData.id != userId && isProtectedRoute) {
+        showtoastMessage("You don't have permission to access this page!");
+
+        setTimeout(() => {
+            localStorage.removeItem("access");
+            window.location.href = "/accounts/user/signin";
+        }, 2000);
+
+        return false;
+    }
+    return true;
+}

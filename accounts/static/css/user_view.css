@@ -1,0 +1,92 @@
+
+/* User View Page */
+
+.container {
+    max-width: 1100px;
+}
+
+/* Page Heading */
+.container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Card */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.card-header {
+    padding: 16px 22px;
+    border: none;
+}
+
+.card-header h5 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 28px;
+}
+
+/* Labels */
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+/* Input Fields */
+.form-control {
+    height: 44px;
+    border: 1px solid #dee2e6;
+    border-radius: 7px;
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-size: 14px;
+    padding: 10px 12px;
+}
+
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.15);
+    background-color: #ffffff;
+}
+
+/* Back Button */
+.btn-outline-secondary {
+    padding: 8px 18px;
+    font-size: 14px;
+    border-radius: 7px;
+    font-weight: 500;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #495057;
+    color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 25px !important;
+    }
+
+    .container h2 {
+        font-size: 23px;
+    }
+
+    .card-body {
+        padding: 18px;
+    }
+
+    .card-header {
+        padding: 14px 18px;
+    }
+}

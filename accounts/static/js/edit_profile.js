@@ -21,11 +21,19 @@ fetch(`/api/accounts/users/${userId}`, {
 })
 .then(user => {
 
+    if (!validatePermissions()) {
+        return;
+    }
+
+
     document.getElementById("first_name").value =
         user.first_name;
 
     document.getElementById("last_name").value =
         user.last_name;
+
+    document.getElementById("gender").value = 
+        user.gender;
 
     document.getElementById("email").value =
         user.email;
@@ -111,3 +119,18 @@ document.getElementById("editProfileForm")
         });
 
     });
+
+
+    function validatePermissions() {
+    if (userData.id != userId && isProtectedRoute) {
+        showtoastMessage("You don't have permission to access this page!");
+
+        setTimeout(() => {
+            localStorage.removeItem("access");
+            window.location.href = "/accounts/user/signin";
+        }, 2000);
+
+        return false;
+    }
+    return true;
+}

@@ -11,7 +11,14 @@ class User(AbstractUser):
         ("owner","Owner")
     )
 
+    GENDER_CHOICES = (
+    ("male", "Male"),
+    ("female", "Female"),
+    ("other", "Other"),
+    )
+
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
+    gender = models.CharField(choices=GENDER_CHOICES,null=True,blank=True)
     email = models.EmailField(unique=True, null=False, blank=False)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
 

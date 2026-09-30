@@ -9,12 +9,13 @@ function userRegisterFormSubmit(event) {
 
     const firstName = document.getElementById("first_name");
     const lastName = document.getElementById("last_name");
+    const gender = document.getElementById("gender")
     const email = document.getElementById("email");
     const phoneNumber = document.getElementById("phone_number");
     const password = document.getElementById("password");
     const confirmPassword = document.getElementById("confirm_password");
     const role = document.getElementById("role");
-
+    
     
 
     if (firstName.value.trim() === "") {
@@ -24,6 +25,11 @@ function userRegisterFormSubmit(event) {
 
     if (lastName.value.trim() === "") {
         showtoastMessage("last name is required");
+        return;
+    }
+
+    if (gender.value.trim() === "") {
+        showtoastMessage("Please select gender");
         return;
     }
 
@@ -64,6 +70,7 @@ function userRegisterFormSubmit(event) {
    const payload = {
     "first_name": firstName.value,
     "last_name": lastName.value,
+    "gender":gender.value,
     "email": email.value,
     "username":email.value,
     "phone_number": phoneNumber.value,

@@ -30,11 +30,38 @@ class PropertyAPI(APIView):
         return [IsAuthenticated()]
 
     def get(self, request):
+
+        query_params = request.query_params
         properties = Property.objects.all()
+
+        property_type = query_params.get("property_type")
+        min_rent = query_params.get("min_rent")
+        max_rent = query_params.get("max_rent")
+        location = query_params.get("location")
+        suitable_for = query_params.get("suitable_for")
+
+        if property_type:
+            properties = properties.filter(property_type=property_type)
+
+        if min_rent is not None and min_rent != "":
+            properties = properties.filter(rent__gte=min_rent)
+
+        if max_rent:
+            properties = properties.filter(rent__lte=max_rent)
+
+        if location:
+            properties = properties.filter(address__icontains=location)
+
+        if suitable_for:
+            properties = properties.filter(suitable_for=suitable_for)
+
+
         serializer = PropertySerializer(properties, many=True)
         return Response({
             "properties": serializer.data,
-            "user_id": request.user.id
+            "user_id": ( request.user.id
+                 if request.user.is_authenticated
+                  else None),
             })
     
     def post(self, request):
@@ -70,6 +97,13 @@ class PropertByIdAPI(APIView):
     def patch(self, request, id):
         property = Property.objects.get(id=id)
 
+        if property.owner != request.user:
+            return Response(
+        {"message": "Permission denied"},
+        status=403
+    )
+
+
         serializer = PropertySerializer(
             property,
             data=request.data,
@@ -80,6 +114,7 @@ class PropertByIdAPI(APIView):
             serializer.save()
 
             return Response({
+
                 "message": "data updated",
                 "data": serializer.data
             })
@@ -88,6 +123,13 @@ class PropertByIdAPI(APIView):
 
     def delete(self, request, id):
         property = Property.objects.get(id=id)
+
+        if property.owner != request.user:
+            return Response(
+                {"message": "Permission denied"},
+                status=403
+            )
+
         property.delete()
 
         return Response({

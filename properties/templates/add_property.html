@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 {% load static %}
 
@@ -6,11 +7,8 @@ Add Property | Rentora
 {% endblock %}
 
 {% block extra_css %}
-
 <link rel="stylesheet" href="{% static 'css/add_property.css' %}">
-
 {% endblock %}
-
 
 {% block content %}
 
@@ -32,121 +30,123 @@ Add Property | Rentora
                         Add your property details
                     </p>
 
-
                     <form id="propertyForm">
 
-
                         <!-- Property Name -->
-
                         <div class="mb-3">
-
                             <label for="name" class="form-label">
                                 Property Name
                             </label>
-
-                            <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Enter property name">
-
+                            <input type="text" class="form-control"
+                                   id="name" name="name"
+                                   placeholder="Enter property name">
                         </div>
 
-
                         <!-- Property Type -->
-
                         <div class="mb-3">
-
                             <label for="property_type" class="form-label">
                                 Property Type
                             </label>
-
-                            <select class="form-select" id="property_type" name="property_type">
-
-                                <option value="">
-                                    Select Property Type
-                                </option>
-
-                                <option value="pg">
-                                    PG
-                                </option>
-
-                                <option value="flat">
-                                    Flat
-                                </option>
-
+                            <select class="form-select" id="property_type"
+                                    name="property_type">
+                                <option value="">Select Property Type</option>
+                                <option value="pg">PG</option>
+                                <option value="flat">Flat</option>
                             </select>
-
                         </div>
 
+                        <!-- Suitable For -->
+                        <div class="mb-3">
+                            <label for="suitable_for" class="form-label">
+                                Suitable For
+                            </label>
+                            <select class="form-select" id="suitable_for"
+                                    name="suitable_for" required>
+                                <option value="" selected disabled>
+                                    Select Suitable For
+                                </option>
+                                <option value="boys">Only for Boys</option>
+                                <option value="girls">Only for Girls</option>
+                                <option value="families">Only for Families</option>
+                                <option value="students">Students</option>
+                                <option value="professionals">Working Professionals</option>
+                                <option value="all">Suitable for All</option>
+                            </select>
+                        </div>
 
                         <!-- Description -->
-
                         <div class="mb-3">
-
                             <label for="description" class="form-label">
                                 Description
                             </label>
-
-                            <textarea class="form-control" id="description" name="description" rows="4"
-                                placeholder="Enter property description"></textarea>
-
+                            <textarea class="form-control" id="description"
+                                      name="description" rows="4"
+                                      placeholder="Enter property description"></textarea>
                         </div>
 
-
                         <!-- Rent -->
-
                         <div class="mb-3">
-
                             <label for="rent" class="form-label">
                                 Monthly Rent
                             </label>
-
-                            <input type="number" class="form-control" id="rent" name="rent"
-                                placeholder="Enter monthly rent" min="0">
-
+                            <input type="number" class="form-control"
+                                   id="rent" name="rent"
+                                   placeholder="Enter monthly rent" min="0">
                         </div>
 
-
                         <!-- Features -->
-
                         <div class="mb-3">
-
                             <label for="features" class="form-label">
                                 Features
                             </label>
-
-                            <textarea class="form-control" id="features" name="features" rows="3"
-                                placeholder="Example: WiFi, Parking, Food, Security"></textarea>
-
+                            <textarea class="form-control" id="features"
+                                      name="features" rows="3"
+                                      placeholder="Example: WiFi, Parking, Food, Security"></textarea>
                         </div>
 
-
                         <!-- Address -->
-
                         <div class="mb-4">
-
                             <label for="address" class="form-label">
                                 Address
                             </label>
-
-                            <input type="text" class="form-control" id="address" name="address"
-                                placeholder="Enter property address">
-
+                            <input type="text" class="form-control"
+                                   id="address" name="address"
+                                   placeholder="Enter property address">
                         </div>
 
+                        <!-- Contact Number -->
+                        <div class="mb-3">
+                            <label for="contact_no" class="form-label">
+                                Contact No.
+                            </label>
+                            <input type="tel" id="contact_no"
+                                   name="contact_no" class="form-control"
+                                   placeholder="Enter contact number">
+                        </div>
+
+                        <!-- Alternate Contact Number -->
+                        <div class="mb-3">
+                            <label for="alternate_contact_no" class="form-label">
+                                Alternate Contact No.
+                            </label>
+                            <input type="tel" id="alternate_contact_no"
+                                   name="alternate_contact_no"
+                                   class="form-control"
+                                   placeholder="Optional">
+                        </div>
 
                         <!-- Submit -->
                         <div class="d-flex gap-3">
-
-
-                            <a href="/properties/list" class="btn btn-secondary w-50">
+                            <a href="/properties/list"
+                               class="btn btn-secondary w-50">
                                 Back
                             </a>
 
-                            <button type="submit" class="btn btn-primary w-50">
+                            <button type="submit"
+                                    class="btn btn-primary w-50">
                                 Add Property
                             </button>
-
                         </div>
-
 
                     </form>
 
@@ -163,7 +163,5 @@ Add Property | Rentora
 {% endblock %}
 
 {% block script %}
-
 <script src="{% static 'js/add_property.js' %}"></script>
-
 {% endblock %}

@@ -1,0 +1,109 @@
+
+
+/* Fixed Filters */
+.filter-card {
+    position: sticky;
+    top: 90px;
+    z-index: 10;
+}
+
+/* User List Page */
+.container {
+    max-width: 1400px;
+}
+
+/* Heading */
+.container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Admin Badge */
+.badge {
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+/* Card */
+.card {
+    border: none;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+/* Table */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+/* Table Header */
+.table thead th {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+/* Table Body */
+.table tbody td {
+    padding: 13px 16px;
+    font-size: 14px;
+    color: #343a40;
+    vertical-align: middle;
+}
+
+/* Table Hover */
+.table-hover tbody tr:hover {
+    background-color: #f2f6fc;
+}
+
+/* Action Buttons */
+.table .btn {
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-right: 4px;
+}
+
+/* No Users Message */
+#noUsersMessage {
+    font-size: 15px;
+    padding: 20px;
+    color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 25px !important;
+    }
+
+    .container h2 {
+        font-size: 23px;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 10px;
+        font-size: 12px;
+    }
+}

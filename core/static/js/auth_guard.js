@@ -34,6 +34,24 @@ if (!accessToken && isProtectedRoute) {
 }
 
 
+        if (!accessToken) {
+
+            const addProperty =
+                document.getElementById("add-property");
+
+
+            if (addProperty) {
+
+                addProperty.setAttribute(
+                    "style",
+                    "display: none;"
+                );
+
+            }
+
+        }
+
+
 else if (accessToken) {
 
     fetch("/api/accounts/auth/", {
@@ -68,8 +86,11 @@ else if (accessToken) {
 
     .then(data => {
 
+       
+
         userData = data;
 
+        console.log("User data:", data);
 
         if (!data) {
             return;
@@ -81,6 +102,9 @@ else if (accessToken) {
 
 
         document.getElementById("register-item")
+            .setAttribute("style", "display: none;"); 
+
+        document.getElementById("signup-item")
             .setAttribute("style", "display: none;");
 
 
@@ -123,15 +147,23 @@ else if (accessToken) {
 
             if (addProperty) {
 
-                addProperty.setAttribute(
-                    "style",
-                    "display: none;"
-                );
-
+                addProperty.setAttribute("style","display: none;");
             }
 
         }
 
+        if (data.is_superuser) {
+
+            const userList =
+                document.getElementById("users-item");
+
+
+            if (userList) {
+
+                userList.setAttribute("style","display: block;");
+            }
+
+        }
 
         document.dispatchEvent(
             new Event("userDataLoaded")

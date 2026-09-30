@@ -1,0 +1,152 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Users List</h2>
+        <span class="badge bg-primary">Admin Panel</span>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Filters -->
+        <div class="col-md-3">
+           <div class="card shadow-sm filter-card">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">Filters</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <!-- Filter by ID -->
+                    <div class="mb-3">
+                        <label for="filterId" class="form-label">
+                            Filter by ID
+                        </label>
+                        <input type="number" id="filterId"
+                               class="form-control"
+                               placeholder="Enter user ID">
+                    </div>
+
+                    <!-- Filter by Role -->
+                    <div class="mb-3">
+                        <label for="filterRole" class="form-label">
+                            Filter by Role
+                        </label>
+                        <select id="filterRole" class="form-select">
+                            <option value="">All Roles</option>
+                            <option value="admin">Admin</option>
+                            <option value="owner">Owner</option>
+                            <option value="tenant">Tenant</option>
+                        </select>
+                    </div>
+
+                    <!-- Filter by Gender -->
+                    <div class="mb-3">
+                        <label for="filterGender" class="form-label">
+                            Filter by Gender
+                        </label>
+                        <select id="filterGender" class="form-select">
+                            <option value="">All Genders</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Filter by Name -->
+                    <div class="mb-3">
+                        <label for="filterName" class="form-label">
+                            Filter by Name
+                        </label>
+                        <input type="text" id="filterName"
+                               class="form-control"
+                               placeholder="Enter name">
+                    </div>
+
+                    <!-- Filter by Email -->
+                    <div class="mb-3">
+                        <label for="filterEmail" class="form-label">
+                            Filter by Email
+                        </label>
+                        <input type="email" id="filterEmail"
+                               class="form-control"
+                               placeholder="Enter email">
+                    </div>
+
+                    <!-- Filter by Status -->
+                    <div class="mb-3">
+                        <label for="filterStatus" class="form-label">
+                            Filter by Status
+                        </label>
+                        <select id="filterStatus" class="form-select">
+                            <option value="">All Status</option>
+                            <option value="true">Active</option>
+                            <option value="false">Inactive</option>
+                        </select>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2">
+
+                        <button type="button" id="resetFilters"
+                                class="btn btn-secondary w-100">
+                            Reset
+                        </button>
+
+                        <button type="button" id="applyFilters"
+                                class="btn btn-primary w-100">
+                            Apply
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="col-md-9">
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="userList">
+                                <!-- Users will be loaded using JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="noUsersMessage"
+                         class="text-center text-muted mt-3"
+                         style="display: none;">
+                        No users found.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/user_list.css' %}">
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/user_list.js' %}"></script>
+{% endblock %}

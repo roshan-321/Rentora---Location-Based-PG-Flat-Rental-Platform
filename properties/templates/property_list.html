@@ -8,70 +8,164 @@ Properties | Rentora
 {% block extra_css %}
 
 <link rel="stylesheet" href="{% static 'css/property_list.css' %}">
-
 {% endblock %}
-
 
 {% block content %}
 
-
 <div class="container py-5">
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
 
-        <div>
+    <div class="row g-4">
 
-            <h2 class="mb-1">
-                Properties
-            </h2>
+        <!-- ================= FILTER SIDEBAR (LEFT) ================= -->
 
-            <p class="text-muted mb-0">
-                Find your perfect place to stay
-            </p>
+        <div class="col-lg-3">
+
+            <div class="card border-0 shadow-sm rounded-4 filter-card">
+
+                <div class="card-body p-4">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold mb-0">
+                            <i class="bi bi-funnel me-2"></i>Filters
+                        </h5>
+
+                        <button type="reset" form="filterForm" id="resetFilters"
+                            class="btn btn-sm btn-link text-decoration-none p-0">
+                            Clear All
+                        </button>
+                    </div>
+
+                    <form id="filterForm">
+
+                        <!-- Property Type -->
+
+                        <div class="mb-4">
+                            <label for="property_type" class="form-label fw-semibold">
+                                Property Type
+                            </label>
+
+                            <select class="form-select" id="property_type" name="property_type">
+                                <option value="">All Types</option>
+                                <option value="pg">PG</option>
+                                <option value="flat">Flat</option>
+                            </select>
+                        </div>
+
+                        <!-- Suitable For -->
+
+                        <div class="mb-4">
+                            <label for="suitable_for" class="form-label fw-semibold">
+                                Suitable For
+                            </label>
+
+                            <select class="form-select" id="suitable_for" name="suitable_for">
+                                <option value="">Everyone</option>
+                                <option value="boys">Boys</option>
+                                <option value="girls">Girls</option>
+                                <option value="families">Families</option>
+                                <option value="students">Students</option>
+                                <option value="professionals">Working Professionals</option>
+                            </select>
+                        </div>
+
+
+                        <!-- Minimum Rent -->
+
+                        <div class="mb-4">
+                            <label for="min_rent" class="form-label fw-semibold">
+                                Minimum Rent
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">₹</span>
+                                <input type="number" class="form-control" id="min_rent" name="min_rent" min="0">
+                            </div>
+                        </div>
+
+
+                        <!-- Maximum Rent -->
+
+                        <div class="mb-4">
+                            <label for="max_rent" class="form-label fw-semibold">
+                                Maximum Rent
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">₹</span>
+                                <input type="number" class="form-control" id="max_rent" name="max_rent" min="0">
+                            </div>
+                        </div>
+
+
+                        <!-- Address -->
+
+                        <div class="mb-4">
+                            <label for="location" class="form-label fw-semibold">
+                                Location
+                            </label>
+
+                            <input type="text" class="form-control" id="location" name="location"
+                                placeholder="Enter location">
+                        </div>
+
+
+                        <!-- Apply Filters -->
+
+                        <button type="submit" class="btn btn-primary w-100 py-2">
+                            <i class="bi bi-search me-2"></i>
+                            Apply Filters
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
 
         </div>
 
 
-        <a href="/properties/add"
-           id="add-property"
-           class="btn btn-primary">
+        <!-- ================= PROPERTY LIST (RIGHT) ================= -->
 
-            + Add Property
+        <div class="col-lg-9">
 
-        </a>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="fw-bold mb-1">Properties</h2>
+                    <p class="text-muted mb-0">
+                        Find your perfect place to stay
+                    </p>
+                </div>
+
+                <a href="/properties/add" id="add-property" class="btn btn-primary px-4">
+                    + Add Property
+                </a>
+            </div>
+
+
+            <!-- Properties will be loaded here -->
+
+            <div id="propertyList" class="row g-4">
+            </div>
+
+
+            <!-- No property message -->
+
+            <div id="noPropertyMessage" class="text-center py-5 d-none">
+                <h5>No properties available</h5>
+                <p class="text-muted">
+                    No properties match your selected filters.
+                </p>
+            </div>
+
+        </div>
 
     </div>
 
-
-    <!-- Properties will be loaded here -->
-
-    <div id="propertyList" class="row g-4">
-
-    </div>
-
-
-    <!-- No property message -->
-
-    <div id="noPropertyMessage" class="text-center py-5 d-none">
-
-        <h5>
-            No properties available
-        </h5>
-
-        <p class="text-muted">
-            Add a property to start listing your rental.
-        </p>
-
-        <a href="/properties/add" class="btn btn-primary">
-            + Add Property
-        </a>
-
-    </div>
 
 </div>
 
 {% endblock %}
-
 
 {% block script %}
 
