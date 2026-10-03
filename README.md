@@ -1,16 +1,23 @@
 # Rentora
 
-Rentora is a location-based PG and flat rental platform that helps users find rental properties based on their preferred location.
+Rentora is a location-based PG and flat rental platform that connects property owners with tenants.
 
 ## Features
 
 - User Registration & Login
 - JWT Authentication
-- OAuth 2.0 Google Sign-In
-- Role-Based User Management
+- Google Sign-In using OAuth 2.0
+- Role-Based Access Control
 - Property Listing
-- Location-Based Property Search
-- Property Details
+- Property Viewing
+- User-Specific Operations
+- RESTful APIs
+- PostgreSQL Database
+
+## User Roles
+
+- Tenant
+- Property Owner
 
 ## Tech Stack
 
@@ -18,12 +25,23 @@ Rentora is a location-based PG and flat rental platform that helps users find re
 - Django
 - Django REST Framework
 - PostgreSQL
-- HTML, CSS, JavaScript
-- Bootstrap
-- JWT
+- JWT Authentication
 - OAuth 2.0
+- HTML
+- CSS
+- JavaScript
+
+## API
+
+The backend provides RESTful APIs for:
+
+- User Management
+- Property Listings
+- Property Viewing
+- User-Specific Operations
 
 ## Author
 
-**Roshan Kumar**  
+**Roshan Kumar**
+
 Python Backend Developer
