@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile | Rentora</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="{% static 'css/user_role.css' %}">
+</head>
+<body>
+
+<div class="onboarding-wrapper">
+    <div class="onboarding-card">
+
+        <div class="welcome-panel">
+            <div class="welcome-content">
+                <h1>Welcome!</h1>
+                <h2>Let's get you started</h2>
+                <p class="welcome-description">
+                    Tell us a bit about yourself so we can
+                    personalize your experience.
+                </p>
+            </div>
+
+            <div class="house-illustration">
+                <svg viewBox="0 0 360 250" role="img"
+                     aria-label="Illustration of a house">
+                    <circle cx="180" cy="125" r="118" fill="#e5efff"/>
+                    <circle cx="295" cy="38" r="18" fill="#ffdf93"/>
+
+                    <path d="M30 207 Q180 190 330 207"
+                          fill="none" stroke="#d4e4ff" stroke-width="5"/>
+
+                    <g fill="#79c9a3">
+                        <circle cx="48" cy="166" r="23"/>
+                        <circle cx="60" cy="182" r="24"/>
+                        <circle cx="310" cy="171" r="23"/>
+                        <circle cx="296" cy="187" r="25"/>
+                    </g>
+                    <g stroke="#559c7b" stroke-width="4" fill="none">
+                        <path d="M55 200 V158 M302 204 V162"/>
+                    </g>
+
+                    <rect x="90" y="120" width="180" height="94"
+                          rx="3" fill="#fff" stroke="#c4d8f4" stroke-width="2"/>
+
+                    <path d="M72 126 L180 38 L288 126 L275 140
+                             L180 65 L85 140 Z"
+                          fill="#4687ef" stroke="#2865cf" stroke-width="2"/>
+
+                    <path d="M100 124 L180 60 L260 124"
+                          fill="none" stroke="#fff" stroke-width="3"/>
+
+                    <rect x="157" y="163" width="45" height="51"
+                          rx="2" fill="#a66e61"/>
+                    <circle cx="194" cy="189" r="2.5" fill="#fce7c4"/>
+
+                    <g fill="#a9d0ff" stroke="#fff" stroke-width="3">
+                        <rect x="111" y="137" width="29" height="29"/>
+                        <rect x="221" y="137" width="29" height="29"/>
+                        <rect x="111" y="176" width="29" height="27"/>
+                        <rect x="221" y="176" width="29" height="27"/>
+                    </g>
+                    <g stroke="#fff" stroke-width="2">
+                        <path d="M125 137 V166 M111 151 H140"/>
+                        <path d="M235 137 V166 M221 151 H250"/>
+                        <path d="M125 176 V203 M111 189 H140"/>
+                        <path d="M235 176 V203 M221 189 H250"/>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon home-icon">
+                        <span>⌂</span>
+                    </div>
+                    <div>
+                        <h4>Find the right place</h4>
+                        <p>Explore verified properties.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon shield-icon">
+                        <span>◆</span>
+                    </div>
+                    <div>
+                        <h4>Safe & Secure</h4>
+                        <p>Your data is always protected.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon heart-icon">
+                        <span>♥</span>
+                    </div>
+                    <div>
+                        <h4>Better Experience</h4>
+                        <p>We personalize recommendations for you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-panel">
+            <div class="progress-section">
+                <div class="progress-steps">
+                    <div class="progress-line"></div>
+
+                    <div class="progress-step active">
+                        <div class="step-circle">1</div>
+                        <span>Basic Info</span>
+                    </div>
+
+                    <div class="progress-step">
+                        <div class="step-circle">2</div>
+                        <span>Preferences</span>
+                    </div>
+
+                    <div class="progress-step">
+                        <div class="step-circle">3</div>
+                        <span>Done</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-heading">
+                <h2>Complete Your Profile</h2>
+                <p>Please select your gender and role to continue.</p>
+            </div>
+
+            <form id="selectRoleForm">
+
+                <div class="selection-group">
+                    <label class="section-label">Gender</label>
+
+                    <div class="gender-options">
+                        <label class="selection-card gender-card selected">
+                            <input type="radio" name="gender" value="male" checked>
+                            <span class="gender-symbol male-symbol">♂</span>
+                            <span class="option-title">Male</span>
+                            <span class="radio-indicator"></span>
+                        </label>
+
+                        <label class="selection-card gender-card">
+                            <input type="radio" name="gender" value="female">
+                            <span class="gender-symbol female-symbol">♀</span>
+                            <span class="option-title">Female</span>
+                            <span class="radio-indicator"></span>
+                        </label>
+
+                        <label class="selection-card gender-card">
+                            <input type="radio" name="gender" value="other">
+                            <span class="gender-symbol other-symbol">⚧</span>
+                            <span class="option-title">Other</span>
+                            <span class="radio-indicator"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="selection-group role-group">
+                    <label class="section-label">Role</label>
+
+                    <div class="role-options">
+                        <label class="selection-card role-card selected">
+                            <input type="radio" name="role" value="tenant" checked>
+                            <span class="role-icon tenant-icon">♟</span>
+                            <span class="option-title">Tenant</span>
+                            <span class="option-description">
+                                I want to find a place to live.
+                            </span>
+                            <span class="radio-indicator"></span>
+                        </label>
+
+                        <label class="selection-card role-card">
+                            <input type="radio" name="role" value="owner">
+                            <span class="role-icon owner-icon">⌂</span>
+                            <span class="option-title">Owner</span>
+                            <span class="option-description">
+                                I want to list my property.
+                            </span>
+                            <span class="radio-indicator"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="errorMessage" class="error-message"></div>
+
+                <button type="submit" id="continueBtn" class="continue-btn">
+                    <span>Continue</span>
+                    <span class="arrow">→</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/user_role.js' %}"></script>
+</body>
+</html>

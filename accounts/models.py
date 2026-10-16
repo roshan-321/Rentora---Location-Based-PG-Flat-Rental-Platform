@@ -17,7 +17,7 @@ class User(AbstractUser):
     ("other", "Other"),
     )
 
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES,  blank=True, default="" )
     gender = models.CharField(choices=GENDER_CHOICES,null=True,blank=True)
     email = models.EmailField(unique=True, null=False, blank=False)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
@@ -27,6 +27,3 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
-
-
-    

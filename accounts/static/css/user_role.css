@@ -1,0 +1,512 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Open Sans", Arial, sans-serif;
+    color: #17233e;
+    background: linear-gradient(125deg, #f4f6ff, #e7edff);
+}
+
+.onboarding-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    overflow: hidden;
+}
+
+.onboarding-card {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 750px;
+    display: grid;
+    grid-template-columns: 34% 66%;
+    background: #fff;
+    border: 1px solid #e1e8f5;
+    border-radius: 19px;
+    box-shadow: 0 20px 60px rgba(55, 79, 145, 0.12);
+    overflow: hidden;
+}
+
+.welcome-panel {
+    padding: 72px 35px 45px;
+    background: linear-gradient(145deg, #f0f6ff, #f7f9ff);
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-content h1 {
+    font-size: 42px;
+    font-weight: 750;
+    margin-bottom: 5px;
+    letter-spacing: -1.5px;
+}
+
+.welcome-content h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.welcome-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #596985;
+    margin-bottom: 0;
+}
+
+.house-illustration {
+    margin: 30px -8px 20px;
+    width: 100%;
+}
+
+.house-illustration svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin-top: auto;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.benefit-icon {
+    flex: 0 0 62px;
+    width: 62px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.home-icon {
+    background: #dceaff;
+    color: #2563eb;
+}
+
+.shield-icon {
+    background: #e8dcff;
+    color: #7435d7;
+}
+
+.heart-icon {
+    background: #ffe0ea;
+    color: #e83e75;
+}
+
+.benefit-item h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 5px;
+}
+
+.benefit-item p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #61708b;
+    margin: 0;
+}
+
+.form-panel {
+    padding: 35px 55px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.progress-section {
+    width: 100%;
+    max-width: 590px;
+    margin: 0 auto 38px;
+}
+
+.progress-steps {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.progress-line {
+    position: absolute;
+    top: 21px;
+    left: 13%;
+    right: 13%;
+    height: 4px;
+    background: #e7eaf0;
+    z-index: 0;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+    color: #97a3b8;
+    font-size: 14px;
+}
+
+.step-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e9edf2;
+    color: #99a4b5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.progress-step.active {
+    color: #1765eb;
+}
+
+.progress-step.active .step-circle {
+    background: #2672ef;
+    color: #fff;
+    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.18);
+}
+
+.form-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.form-heading h2 {
+    font-size: 30px;
+    font-weight: 750;
+    letter-spacing: -0.7px;
+    margin-bottom: 8px;
+}
+
+.form-heading p {
+    font-size: 16px;
+    color: #77849b;
+    margin: 0;
+}
+
+.selection-group {
+    margin-bottom: 28px;
+}
+
+.section-label {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.gender-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.role-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.selection-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #dce3ed;
+    border-radius: 11px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.selection-card:hover {
+    border-color: #80aaff;
+    background: #f8faff;
+}
+
+.selection-card.selected {
+    border: 1.5px solid #1769f5;
+    background: #f0f5ff;
+    box-shadow: 0 0 0 1px rgba(23, 105, 245, 0.04);
+}
+
+.selection-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gender-card {
+    min-height: 135px;
+    padding: 15px 8px;
+    gap: 9px;
+}
+
+.gender-symbol {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 33px;
+    font-weight: 600;
+}
+
+.male-symbol {
+    color: #2875ed;
+    background: #e8f0ff;
+}
+
+.female-symbol {
+    color: #e34883;
+    background: #fff0f6;
+}
+
+.other-symbol {
+    color: #8753e8;
+    background: #f2eaff;
+}
+
+.option-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #17233e;
+}
+
+.radio-indicator {
+    display: block;
+    width: 19px;
+    height: 19px;
+    border: 2px solid #bdc7d6;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 2px;
+}
+
+.selection-card.selected .radio-indicator {
+    border-color: #2672ef;
+}
+
+.selection-card.selected .radio-indicator::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #2672ef;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+.role-group {
+    margin-top: 29px;
+    margin-bottom: 24px;
+}
+
+.role-card {
+    min-height: 154px;
+    padding: 16px 12px;
+    gap: 7px;
+}
+
+.role-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.tenant-icon {
+    color: #2875ed;
+    background: #e4edff;
+}
+
+.owner-icon {
+    color: #8052df;
+    background: #eee4ff;
+}
+
+.option-description {
+    color: #71809a;
+    font-size: 13px;
+    text-align: center;
+}
+
+.error-message {
+    display: none;
+    color: #dc3545;
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.continue-btn {
+    width: 100%;
+    min-height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    background: #2672ef;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.continue-btn:hover {
+    background: #155bd1;
+}
+
+.continue-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.arrow {
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+@media (max-width: 900px) {
+    .onboarding-wrapper {
+        padding: 20px;
+    }
+
+    .onboarding-card {
+        grid-template-columns: 1fr;
+        max-width: 650px;
+    }
+
+    .welcome-panel {
+        padding: 30px;
+    }
+
+    .house-illustration {
+        max-width: 300px;
+        margin: 20px auto;
+    }
+
+    .benefits {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .benefit-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-panel {
+        padding: 35px 30px;
+    }
+}
+
+@media (max-width: 520px) {
+    .onboarding-wrapper {
+        padding: 12px;
+    }
+
+    .onboarding-card {
+        border-radius: 13px;
+    }
+
+    .welcome-panel {
+        padding: 25px 22px;
+    }
+
+    .welcome-content h1 {
+        font-size: 32px;
+    }
+
+    .welcome-content h2 {
+        font-size: 21px;
+    }
+
+    .welcome-description {
+        font-size: 14px;
+    }
+
+    .benefits {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .benefit-item {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .benefit-icon {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        font-size: 24px;
+    }
+
+    .form-panel {
+        padding: 28px 18px;
+    }
+
+    .form-heading h2 {
+        font-size: 23px;
+    }
+
+    .form-heading p {
+        font-size: 13px;
+    }
+
+    .gender-options {
+        gap: 7px;
+    }
+
+    .gender-card {
+        min-height: 125px;
+    }
+
+    .role-card {
+        min-height: 145px;
+        padding: 12px 6px;
+    }
+
+    .option-description {
+        font-size: 11px;
+    }
+}

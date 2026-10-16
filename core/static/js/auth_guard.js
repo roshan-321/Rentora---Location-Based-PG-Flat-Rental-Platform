@@ -1,5 +1,6 @@
 const publicPages = [
     "/",
+    "/accounts/google/callback",
     "/accounts/user/signin",
     "/accounts/user/signup",
     "/about",
@@ -45,10 +46,16 @@ if (!accessToken && isProtectedRoute) {
                 addProperty.setAttribute(
                     "style",
                     "display: none;"
-                );
+                );}
+             }
 
+             
+        if (!accessToken) {
+            const contactNo = document.getElementById("contact_no");
+
+            if (contactNo) {
+                contactNo.innerHTML = `<p>--------</p>`;
             }
-
         }
 
 
@@ -96,7 +103,7 @@ else if (accessToken) {
             return;
         }
 
-
+       
         document.getElementById("logout-item")
             .setAttribute("style", "display: block;");
 
@@ -107,25 +114,13 @@ else if (accessToken) {
         document.getElementById("signup-item")
             .setAttribute("style", "display: none;");
 
-
         document.getElementById("profile-item")
             .setAttribute("style", "display: block;");
 
+        const actionBtn = document.getElementById("action_btn");
 
-        const profileLink = document.getElementById("profile-link");
+        if (actionBtn) actionBtn.setAttribute("style", "display: none;");
 
-
-        if (profileLink) {
-
-            profileLink.href = `/accounts/user/profile/${data.id}`;
-
-        }
-
-        const editProfileLink = document.getElementById("edit-profile-link");
-
-        if (editProfileLink) {
-           editProfileLink.href =  `/accounts/user/profile/edit/${data.id}`;
-        }
 
 
         try {

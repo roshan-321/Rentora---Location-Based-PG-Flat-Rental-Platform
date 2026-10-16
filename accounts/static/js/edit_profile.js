@@ -1,10 +1,12 @@
-const userId = window.location.pathname
-    .split("/")
-    .filter(Boolean)
-    .pop();
+document.addEventListener("userDataLoaded", () => {
+
+    if (!userData || !userData.id) {
+        console.log("User data not available");
+        return;
+    }
 
 
-fetch(`/api/accounts/users/${userId}`, {
+fetch(`/api/accounts/users/${userData.id}`, {
     method: "GET",
     headers: {
         "Authorization": "Bearer " + localStorage.getItem("access")
@@ -20,11 +22,6 @@ fetch(`/api/accounts/users/${userId}`, {
 
 })
 .then(user => {
-
-    if (!validatePermissions()) {
-        return;
-    }
-
 
     document.getElementById("first_name").value =
         user.first_name;
@@ -76,7 +73,7 @@ document.getElementById("editProfileForm")
         };
 
 
-        fetch(`/api/accounts/users/${userId}`, {
+        fetch(`/api/accounts/users/${userData.id}`, {
 
             method: "PATCH",
 
@@ -108,7 +105,7 @@ document.getElementById("editProfileForm")
             showtoastMessage("Profile updated successfully!");
 
             setTimeout(() => {
-                 window.location.href = `/accounts/user/profile/${userId}`;
+                 window.location.href = `/accounts/user/profile`;
             }, 2000);
 
         })
@@ -119,18 +116,4 @@ document.getElementById("editProfileForm")
         });
 
     });
-
-
-    function validatePermissions() {
-    if (userData.id != userId && isProtectedRoute) {
-        showtoastMessage("You don't have permission to access this page!");
-
-        setTimeout(() => {
-            localStorage.removeItem("access");
-            window.location.href = "/accounts/user/signin";
-        }, 2000);
-
-        return false;
-    }
-    return true;
-}
+});

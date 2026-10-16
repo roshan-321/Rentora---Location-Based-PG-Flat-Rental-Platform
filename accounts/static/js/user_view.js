@@ -50,6 +50,7 @@ fetch(`/api/accounts/users/${userId}`, {
 .catch(error => {
     console.error("Error fetching user:", error);
 });
+
 function validatePermissions() {
     if (!userData.is_superuser && isProtectedRoute) {
         showtoastMessage("You don't have permission to access this page!");

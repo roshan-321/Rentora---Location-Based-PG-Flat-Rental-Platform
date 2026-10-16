@@ -118,19 +118,6 @@ propertyForm.addEventListener("submit", function(event) {
 
 });
 
-function validatePermissions() {
-    if (userData.role == "tenant" && isProtectedRoute) {
-        showtoastMessage("You don't have permission to access this page!");
-
-        setTimeout(() => {
-            localStorage.removeItem("access");
-            window.location.href = "/accounts/user/signin";
-        }, 2000);
-
-        return;
-    }
-}
-
 
 function validatePermissions() {
     if (userData.role == "tenant" && isProtectedRoute) {

@@ -7,5 +7,3 @@ class HomeRenderView(TemplateView):
 
 class AboutRenderView(TemplateView):
     template_name = 'about.html'
-
-
