@@ -114,14 +114,25 @@ function loadProperties() {
                                     View
                                 </a>
 
-                                ${
-                                    userData &&
-                                    userData.role == "owner" &&
+                            ${
+                                userData &&
+                                (
+                                    userData.is_superuser
+                                    ?
+                                    `
+                                    <button
+                                        class="btn btn-sm btn-danger"
+                                        onclick="deleteProperty(${property.id})">
+                                        Delete
+                                    </button>
+                                    `
+                                    :
+                                    userData.role === "owner" &&
                                     userData.id == property.owner
                                     ?
                                     `
                                     <a href="/properties/edit/${property.id}"
-                                       class="btn btn-sm btn-warning">
+                                    class="btn btn-sm btn-warning">
                                         Edit
                                     </a>
 
@@ -133,8 +144,8 @@ function loadProperties() {
                                     `
                                     :
                                     ""
-                                }
-
+                                )
+                            }
                             </div>
 
                         </div>
