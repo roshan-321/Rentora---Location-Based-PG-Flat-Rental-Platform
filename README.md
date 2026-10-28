@@ -111,12 +111,6 @@ All protected endpoints require a valid **JWT access token**:
 Authorization: Bearer <your_access_token>
 ```
 
----
-
-## 📸 Screenshots
-![alt text]({1A262C23-D9B0-469F-B656-7850D184649C}.png)
----
-
 ## 🔮 Future Improvements
 
 - Booking and payment integration
