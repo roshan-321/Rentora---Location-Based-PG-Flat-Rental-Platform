@@ -46,7 +46,7 @@ class PropertyAPI(APIView):
         if min_rent is not None and min_rent != "":
             properties = properties.filter(rent__gte=min_rent)
 
-        if max_rent:
+        if max_rent is not None and max_rent != "":
             properties = properties.filter(rent__lte=max_rent)
 
         if location:

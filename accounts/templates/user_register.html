@@ -98,6 +98,15 @@ Rentora Registration
                         <span class="text-muted">OR</span>
                     </div>
 
+                    <a href="https://accounts.google.com/o/oauth2/v2/auth?redirect_uri={{ google_redirect_uri }}&prompt=consent&response_type=code&client_id={{ google_client_id }}&scope=openid%20email%20profile&access_type=offline"
+                            class="btn btn-outline-dark w-100">
+
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google"
+                                width="20" height="20" class="me-2">
+
+                            Continue with Google
+                    </a>
+
                     <div class="text-center mt-4">
                         <p>
                             Already have an account?

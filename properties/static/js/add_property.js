@@ -1,12 +1,11 @@
 const propertyForm = document.getElementById("propertyForm");
 
 propertyForm.addEventListener("submit", function(event) {
-
     event.preventDefault();
 
     const name = document.getElementById("name");
     const propertyType = document.getElementById("property_type");
-    const suitableFor = document.getElementById("suitable_for")
+    const suitableFor = document.getElementById("suitable_for");
     const description = document.getElementById("description");
     const rent = document.getElementById("rent");
     const features = document.getElementById("features");
@@ -14,12 +13,10 @@ propertyForm.addEventListener("submit", function(event) {
     const contactNo = document.getElementById("contact_no");
     const alternateContactNo = document.getElementById("alternate_contact_no");
 
-
     const featureList = features.value
         .split(",")
         .map(feature => feature.trim())
         .filter(feature => feature !== "");
-
 
     const featureObject = {};
 
@@ -27,7 +24,6 @@ propertyForm.addEventListener("submit", function(event) {
         featureObject[feature] = true;
     });
 
-    
     if (name.value.trim() === "") {
         showtoastMessage("property name is required");
         return;
@@ -39,9 +35,9 @@ propertyForm.addEventListener("submit", function(event) {
     }
 
     if (suitableFor.value.trim() === "") {
-        showtoastMessage("plese Select Suitable For ");
+        showtoastMessage("plese Select Suitable For");
         return;
-    }    
+    }
 
     if (description.value.trim() === "") {
         showtoastMessage("description is required");
@@ -53,7 +49,6 @@ propertyForm.addEventListener("submit", function(event) {
         return;
     }
 
-    
     if (rent.value.trim() === "") {
         showtoastMessage("rent is required");
         return;
@@ -69,55 +64,47 @@ propertyForm.addEventListener("submit", function(event) {
         return;
     }
 
-
-
     const payload = {
         "name": name.value,
         "property_type": propertyType.value,
-        "suitable_for":suitableFor.value,
+        "suitable_for": suitableFor.value,
         "description": description.value,
         "rent": rent.value,
         "features": featureObject,
         "address": address.value,
-        "contact_no":contactNo.value,
-        "alternate_contact_no" : alternateContactNo.value
-        
+        "contact_no": contactNo.value,
+        "alternate_contact_no": alternateContactNo.value
     };
 
-
-    console.log("payload :", payload);
-
+    console.log("payload:", payload);
 
     fetch("/api/properties/list", {
-
         "method": "POST",
-
         "headers": {
             "content-type": "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
-
         "body": JSON.stringify(payload)
-
     })
-    .then(response => response.json())
-    .then(data => {
+    .then(response => response.json().then(data => {
+        console.log("data:", data);
 
-        console.log("data :", data);
-        showtoastMessage("property Added Successfully")
-        setTimeout(() => {
-            window.location.href = "/properties/list";
-            }, 2000);
+        if (!response.ok) {
+            showtoastMessage(data.detail || "Failed to add property");
+            return;
+        }
 
-    })
+        showtoastMessage("Property Added Successfully");
+        
+         setTimeout(() => {
+        window.location.href = "/properties/list";
+    }, 1000);
+}))
     .catch(error => {
-
         console.error("Error:", error);
-
+        showtoastMessage("Something went wrong");
     });
-
 });
-
 
 function validatePermissions() {
     if (userData.role == "tenant" && isProtectedRoute) {
@@ -130,5 +117,6 @@ function validatePermissions() {
 
         return false;
     }
+
     return true;
 }

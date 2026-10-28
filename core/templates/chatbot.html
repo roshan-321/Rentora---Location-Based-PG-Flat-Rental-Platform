@@ -1,0 +1,73 @@
+<!-- ================= ASK AI FLOATING BUTTON ================= -->
+
+<button
+    type="button"
+    id="askAiBtn"
+    class="ask-ai-btn"
+    aria-label="Open Ask AI chatbot"
+    aria-controls="askAiModal"
+    aria-expanded="false"
+>
+    <span class="ai-icon">✦</span>
+    <span>Ask AI</span>
+</button>
+
+<!-- ================= ASK AI CHAT MODAL ================= -->
+
+<div
+    id="askAiModal"
+    class="ask-ai-modal"
+    role="dialog"
+    aria-label="Rentora AI Chat"
+    aria-modal="false"
+    aria-hidden="true"
+>
+    <!-- Chat Header -->
+    <div class="ask-ai-header">
+
+        <div>
+            <h5 class="mb-1">✦ Rentora AI</h5>
+            <small>Your rental assistant</small>
+        </div>
+
+        <button
+            type="button"
+            id="closeAiBtn"
+            class="close-ai-btn"
+            aria-label="Close chatbot"
+        >
+            &times;
+        </button>
+
+    </div>
+
+    <!-- Chat Messages -->
+    <div
+        class="ask-ai-body"
+        id="aiChatBody"
+        aria-live="polite"
+    >Hello! I am Rentora Assistant. Ask me anything.</div>
+
+    <!-- Chat Input -->
+    <div class="ask-ai-footer">
+
+        <input
+            type="text"
+            id="aiMessageInput"
+            class="form-control"
+            placeholder="Ask about PGs or flats..."
+            aria-label="Type your message"
+            autocomplete="off"
+        >
+
+        <button
+            type="button"
+            id="sendAiBtn"
+            class="send-ai-btn"
+            aria-label="Send message"
+        >
+            ➤
+        </button>
+
+    </div>
+</div>

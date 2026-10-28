@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,9 +59,12 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
 
+    'channels',
+
     'accounts',
     'properties',
     'core',
+    'chatbot',
 ]
 
 SITE_ID = 1
@@ -104,7 +108,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'rentora.wsgi.application'
+ASGI_APPLICATION = 'rentora.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
 
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -128,7 +138,6 @@ REST_FRAMEWORK = {
     ]
 }
 
-# settings.py
 from datetime import timedelta
 
 SIMPLE_JWT = {

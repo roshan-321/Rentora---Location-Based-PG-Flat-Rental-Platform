@@ -9,6 +9,13 @@ class GoogleCallbackRenderView(TemplateView):
 class UserRegisterRenderView(TemplateView):
     template_name = 'user_register.html'
 
+    def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context["google_client_id"] = settings.GOOGLE_OAUTH_CLIENT_ID
+            context["google_redirect_uri"] = settings.GOOGLE_OAUTH_CALLBACK_URL
+            return context
+    
+
 class UserLoginRenderView(TemplateView):
     template_name = 'user_login.html'
 
